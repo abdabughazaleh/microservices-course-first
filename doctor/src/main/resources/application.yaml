@@ -3,3 +3,7 @@ server:
 spring:
   application:
     name: DOCTOR-SERVICE
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
