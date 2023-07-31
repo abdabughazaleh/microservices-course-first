@@ -17,6 +17,6 @@ public class PatientController {
     @GetMapping("/search/{name}")
     public String getName(@PathVariable("name") String name){
         log.info("new request : " + UUID.randomUUID());
-        return this.patientService.getName(name) + " Service One";
+        return this.patientService.getName(name) + " Service Two ";
     }
 }

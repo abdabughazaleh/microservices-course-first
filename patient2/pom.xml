@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.microservices</groupId>
-	<artifactId>doctor</artifactId>
+	<artifactId>patient</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>doctor</name>
+	<name>patient</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>1.8</java.version>
@@ -21,7 +21,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -57,21 +56,13 @@
 		</dependency>
 		<!--./ Configure Spring Cloud -->
 
-		<!-- Eureka Client -->
+		<!-- Eureka Server -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 			<version>3.1.3</version>
 		</dependency>
-		<!-- ./ Eureka Client -->
-
-		<!-- OpenFeign  -->
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-openfeign</artifactId>
-			<version>3.1.3</version>
-		</dependency>
-		<!-- ./ OpenFeign  -->
+		<!-- ./ Eureka Server -->
 
 	</dependencies>
 
