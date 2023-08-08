@@ -1,4 +1,4 @@
-package com.microservices.patient.model.dto;
+package com.microservices.doctor.model.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

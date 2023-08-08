@@ -1,9 +1,44 @@
 server:
   port: 8000
+  servlet:
+    context-path: /doctor
 spring:
   application:
     name: DOCTOR-SERVICE
+  boot:
+    admin:
+      client:
+        url: http://localhost:8888
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka
+management:
+  health:
+    show-details: always
+    circuitbreakers:
+      enabled: true
+  endpoint:
+    health:
+      show-details: always
+  ### Spring boot admin
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  ### Spring boot admin
+
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      getPatientInstance:
+        registerHealthIndicator: true
+        eventConsumerBufferSize: 10
+        failureRateThreshold: 50
+        minimumNumberOfCalls: 5
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+        waitDurationInOpenState: 3s
+        permittedNumberOfCallsInHalfOpenState: 2
+        slidingWindowSize: 10
+        slidingWindowType: COUNT_BASED

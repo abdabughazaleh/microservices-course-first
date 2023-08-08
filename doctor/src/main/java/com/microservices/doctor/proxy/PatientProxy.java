@@ -1,15 +1,18 @@
 package com.microservices.doctor.proxy;
 
-import org.springframework.cloud.openfeign.EnableFeignClients;
+import com.microservices.doctor.model.dto.AddPatientDTO;
+import com.microservices.doctor.model.dto.PatientDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.UUID;
 
-
-@FeignClient(name = "PATIENT-SERVICE")
+@FeignClient(name = "PATIENT-SERVICE" , path = "/patient")
 public interface PatientProxy {
-    @GetMapping("/search/{name}")
-    public String getName(@PathVariable("name") String name);
+    @GetMapping("/get-patient")
+    public PatientDTO get(@RequestParam Long id);
+    @PostMapping("/add-patient")
+    public AddPatientDTO save(@RequestBody AddPatientDTO dto);
 }

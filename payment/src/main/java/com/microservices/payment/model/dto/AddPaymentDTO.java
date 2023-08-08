@@ -5,15 +5,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PaymentDTO {
-    private Long id;
-    private String tranId;
+public class AddPaymentDTO {
     private Double amount;
     private Long patientId;
 }

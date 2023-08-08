@@ -5,13 +5,12 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AddPatientDTO {
+public class UpdatePatientDTO {
+    private Long id;
     private String patientName;
     private Integer patientAge;
 }
