@@ -4,16 +4,19 @@ import com.microservices.doctor.model.dto.AddPatientDTO;
 import com.microservices.doctor.model.dto.PatientDTO;
 import com.microservices.doctor.service.DoctorPatientService;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@Slf4j
 public class DoctorPatientController {
     @Autowired
     private DoctorPatientService patientService;
     @CircuitBreaker(name = "getPatientInstance" , fallbackMethod = "getDefaultPatient")
     @GetMapping("/get-patient")
     public PatientDTO getPatient(@RequestParam Long id){
+        log.info("start getting patient details {} " , id);
         return this.patientService.getPatient(id);
     }
     @PostMapping("/add-patient")

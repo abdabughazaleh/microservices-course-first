@@ -27,3 +27,7 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka
+
+logging:
+  file:
+    name: C:\elastic\logs\patient-service.log

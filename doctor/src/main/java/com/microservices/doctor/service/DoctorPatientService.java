@@ -16,15 +16,18 @@ public class DoctorPatientService {
     private PatientProxy patientProxy;
 
 
-    public PatientDTO getPatient(Long id){
-        log.info("getting patient details for patient id : {} " , id);
+    public PatientDTO getPatient(Long id) {
+        log.info("getting patient details for patient id : {} ", id);
         PatientDTO patientDTO = this.patientProxy.get(id);
-        log.info("patient details {} " , patientDTO);
+        log.info("patient details {} ", patientDTO);
         return patientDTO;
     }
 
 
     public AddPatientDTO addPatient(AddPatientDTO dto) {
-        return this.patientProxy.save(dto);
+        log.info("start getting patient info {} ", dto);
+        AddPatientDTO save = this.patientProxy.save(dto);
+        log.info("successfully saved patient details {} ", save);
+        return save;
     }
 }

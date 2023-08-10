@@ -42,3 +42,8 @@ resilience4j:
         permittedNumberOfCallsInHalfOpenState: 2
         slidingWindowSize: 10
         slidingWindowType: COUNT_BASED
+
+
+logging:
+  file:
+    name: C:\elastic\logs\doctor-service.log
