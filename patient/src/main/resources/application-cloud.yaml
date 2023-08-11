@@ -1,17 +1,17 @@
 server:
-  port: 3000
+  port: 9000
   servlet:
-    context-path: /payment
+    context-path: /patient
 spring:
   boot:
     admin:
       client:
-        url: http://localhost:8888
+        url: http://host.docker.internal:8888
   application:
-    name: PAYMENT-SERVICE
-  ########### Database Config ############
+    name: PATIENT-SERVICE
+########### Database Config ############
   datasource:
-    url: jdbc:h2:file:./database/payment_db
+    url: jdbc:h2:file:./database/patient_db
     driverClasName: org.h2.Driver
     username: root
     password:
@@ -22,11 +22,8 @@ spring:
   h2:
     console:
       enable: true
-  cloud:
-    discovery:
-      enabled: true
 ########### Database Config ############
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: http://host.docker.internal:8761/eureka
