@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eureka-server-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: eureka-app
+  template:
+    metadata:
+      labels:
+        app: eureka-app
+    spec:
+      containers:
+        - name: eureka-app-container
+          image: abdabughazale7/eureka-server-img
